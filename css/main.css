@@ -1,0 +1,35 @@
+.taskBoard {
+    border: 1px solid #dcdcde;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 3px;
+}
+.todoItem{
+    margin-bottom: 10px;
+}
+.todoList {
+    margin-top:20px;
+}
+.todoHeader h4{
+    border-bottom: 1px solid #dcdcde;
+    padding-bottom:5px;
+}
+.form-check {
+    margin-left: 5px;
+}
+.form-check input{
+    width:20px;
+
+    position:relative;
+    vertical-align:middle;
+}
+.form-check input[type=checkbox]:checked + label.linecrossed {
+    text-decoration: line-through;
+}
+
+.form-check label{
+    position:relative;
+    right: -5px;
+    display:inline-block;
+    vertical-align:middle;
+}

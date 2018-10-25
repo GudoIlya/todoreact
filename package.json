@@ -1,0 +1,30 @@
+{
+  "name": "tempReact",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-react": "6.24.1",
+    "css-loader": "1.0.0",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
+    "react-hot-loader": "4.3.11",
+    "react-redux": "5.0.7",
+    "react-router": "4.3.1",
+    "style-loader": "0.23.0",
+    "webpack": "4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "3.1.9"
+  },
+  "babel": {
+    "presets": [
+      "react"
+    ]
+  },
+  "scripts": {
+    "watch": "node_modules/.bin/webpack -w",
+    "build": "node_modules/.bin/webpack",
+    "wds": "node_modules/.bin/webpack-dev-server -w --config webpack.config.js --hot"
+  }
+}
