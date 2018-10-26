@@ -20,13 +20,13 @@ class Todoitem extends React.Component {
     render() {
         return (
             <div className="row todoItem">
-                <div className="col-md-11">
+                <div className="col-md-11 nopadding">
                     <div className="form-check">
-                        <input id="item-{this.props.taskKey}" className="form-check-input" onChange={this.checkTask} type="checkbox" name="is_done" checked={this.props.task.is_done} />
+                        <input id='item-{this.props.taskKey}' className="form-check-input" onChange={this.checkTask} type="checkbox" name="is_done" checked={this.props.task.is_done} />
                         <label className="form-check-label linecrossed" htmlFor="item-{this.props.taskKey}">{this.props.task.task}</label>
                     </div>
                 </div>
-                <div className="col-md-1">
+                <div className="col-md-1 nopadding">
                     <button className="btn btn-danger" onClick={this.handleRemoveButton}>-</button>
                 </div>
             </div>

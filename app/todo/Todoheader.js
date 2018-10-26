@@ -1,5 +1,4 @@
 import React from 'react';
-import Todoform from './TodoForm';
 
 class Todoheader extends React.Component {
 
@@ -12,8 +11,7 @@ class Todoheader extends React.Component {
 
         return (
             <div className="todoHeader">
-                <h4>Всего задач - {totalTasks} (<span title="Всего выполнено">{this.props.doneTaskNumber || 0}</span> / <span title="Не выполнено">{this.props.notDoneTaskNumber || 0})</span></h4>
-                <Todoform onAddTask={this.props.onAddTask} />
+                <h5>Всего задач - {totalTasks} (<span title="Всего выполнено">{this.props.doneTaskNumber || 0}</span> / <span title="Не выполнено">{this.props.notDoneTaskNumber || 0})</span></h5>
             </div>
         );
     }

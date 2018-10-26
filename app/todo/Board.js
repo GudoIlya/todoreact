@@ -1,6 +1,8 @@
 import React from 'react';
 import Todoheader from './Todoheader';
 import Todolist from './Todolist';
+import Projectlist from "./projects/Projectlist";
+import Todoform from "./TodoForm";
 
 class Board extends React.Component {
     constructor(props) {
@@ -37,15 +39,12 @@ class Board extends React.Component {
     }
 
     checkOneTask(taskKey, checked) {
-        console.log(taskKey);
-        console.log(checked);
         let tasks = this.state.tasks;
         if(checked === true) {
             tasks[taskKey].is_done = true;
         } else {
             tasks[taskKey].is_done = false;
         }
-        console.log(tasks);
         this.setState({
             tasks : tasks
         }, () => {
@@ -71,18 +70,31 @@ class Board extends React.Component {
     render() {
         return (
             <div className="taskBoard">
-                <Todoheader
-                    taskNumber={this.state.tasksNumber}
-                    doneTaskNumber={this.state.doneTasksNumber}
-                    notDoneTaskNumber={this.state.notDoneTasksNumber}
-                    onAddTask={this.addTask}
-                    onRemoveTask={this.removeTask}
-                />
-                <Todolist
-                    onRemoveTask={this.removeTask}
-                    onCheckDoneTask={this.checkOneTask}
-                    tasks={this.state.tasks}
-                />
+                <div className="row mb20">
+                    <div className="col-md-3"></div>
+                    <div className="col-md-9">
+                        <Todoform onAddTask={this.addTask} />
+                    </div>
+                </div>
+                <hr/>
+                <div className="row">
+                    <div className="col-md-3">
+                        <Projectlist tasks={this.state.tasks} />
+                    </div>
+                    <div className="col-md-9">
+                        <Todoheader
+                            taskNumber={this.state.tasksNumber}
+                            doneTaskNumber={this.state.doneTasksNumber}
+                            notDoneTaskNumber={this.state.notDoneTasksNumber}
+                            onRemoveTask={this.removeTask}
+                        />
+                        <Todolist
+                            onRemoveTask={this.removeTask}
+                            onCheckDoneTask={this.checkOneTask}
+                            tasks={this.state.tasks}
+                        />
+                    </div>
+                </div>
             </div>
         );
     }

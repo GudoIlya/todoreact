@@ -7,12 +7,26 @@
 .todoItem{
     margin-bottom: 10px;
 }
-.todoList {
-    margin-top:20px;
+.todoItem .btn {
+    line-height : 20px;
 }
 .todoHeader h4{
     border-bottom: 1px solid #dcdcde;
     padding-bottom:5px;
+}
+.todo-form button {
+    font-size: 14px;
+    line-height: 24px;
+}
+.liWrapper {
+    position: relative;
+    padding: 0px 2px;
+}
+.liWrapper label {
+    position: absolute;
+    top: -12px;
+    left: 8px;
+    background: white;
 }
 .form-check {
     margin-left: 5px;
@@ -32,4 +46,11 @@
     right: -5px;
     display:inline-block;
     vertical-align:middle;
+}
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.mb20{
+    margin-bottom:20px;
 }
