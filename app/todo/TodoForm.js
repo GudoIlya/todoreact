@@ -13,7 +13,7 @@ class Todoform extends React.Component {
                 <Formik
                     initialValues={{
                         task : '',
-                        project : '',
+                        project : 'Без проекта',
                         is_done : false
                     }}
                     onSubmit={(values, { initialValues, setSubmitting, resetForm }) => {

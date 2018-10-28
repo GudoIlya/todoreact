@@ -5,15 +5,17 @@ import Projectitem from './Projectitem';
 class Projectlist extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            projects : this.collectProjects(this.props.tasks)
-        }
+
+        this.collectProjects = this.collectProjects.bind(this);
     }
 
     collectProjects(tasks) {
         let withoutProject = "Без проекта";
         let projects = {};
-        projects[withoutProject] = 0;
+        projects[withoutProject] = {
+            name : withoutProject,
+            number : 0
+        };
         if(tasks.length) {
             let project;
             tasks.map(function(task, i){
@@ -21,25 +23,28 @@ class Projectlist extends React.Component {
                 if(project == "") {
                     project = withoutProject;
                 }
-                if(task.project in projects) {
+                if(project in projects) {
                     projects[project]['number'] += 1;
                 } else {
                     projects[project] = {
-                        number : 0
+                        name   : project,
+                        number : 1
                     };
                 }
             });
         }
-        console.log(projects);
         return projects;
     }
 
     render() {
+        let projects = this.collectProjects(this.props.tasks);
+        let me = this;
         return (
             <div>
-                <Projectheader projects={this.props.projects} />
-                {this.props.projects ? this.props.projects.map(function(project, index){
-                    <Projectitem key={index} projectKey={index} project={project} />
+                <Projectheader projects={projects} doFiltrate={me.props.doFiltrate}/>
+                {projects ? Object.keys(projects).map(function(key, index){
+                    console.log('wqweqw');
+                    return <Projectitem key={key} projectKey={key} project={projects[key]} doFiltrate={me.props.doFiltrate}/>
                 }) : 'Нет проектов'}
             </div>
         );

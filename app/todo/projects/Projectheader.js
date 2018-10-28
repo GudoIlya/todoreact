@@ -3,15 +3,13 @@ import React from 'react';
 class Projectheader extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            projectnumber : this.props.projects ? Object.keys(this.props.projects).length : 0
-        }
     }
 
     render() {
+        let me = this;
         return (
-            <div className="project-header">
-                <h5>Проекты ({this.state.projectnumber})</h5>
+            <div className="project-header bbgray">
+                <h5 onClick={function() {me.props.doFiltrate(true);} }>Проекты ({this.props.projects ? Object.keys(this.props.projects).length : 0})</h5>
             </div>
         );
     }

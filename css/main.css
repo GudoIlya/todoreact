@@ -1,8 +1,10 @@
 .taskBoard {
     border: 1px solid #dcdcde;
     margin: 10px auto;
-    padding: 20px;
     border-radius: 3px;
+}
+.taskBoard .row{
+    margin: 0px;
 }
 .todoItem{
     margin-bottom: 10px;
@@ -17,6 +19,29 @@
 .todo-form button {
     font-size: 14px;
     line-height: 24px;
+}
+.tasksWrapper{
+    margin:0 !important;
+    margin-bottom:20px;
+}
+.tasksWrapper h5{
+    padding-left:5px;
+}
+.tasksWrapper .todoList, .tasksWrapper .project-item span{
+    padding-left:5px;
+}
+.tasksWrapper .project-item {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.tasksWrapper .project-item:last-child {
+    border-bottom: 0px;
+}
+.project-item, .todoList{
+    line-height: 30px;
+}
+.project-item:hover{
+    cursor : pointer;
+    background : #90de91;
 }
 .liWrapper {
     position: relative;
@@ -52,5 +77,14 @@
     margin: 0 !important;
 }
 .mb20{
-    margin-bottom:20px;
+    margin-bottom:20px !important;
+}
+.bbgray{
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.brgray{
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+.todo-form{
+    padding: 12px 0px;
 }
