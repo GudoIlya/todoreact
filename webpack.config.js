@@ -1,5 +1,5 @@
 module.exports = {
-    entry : __dirname + "/app2/index.js",
+    entry : __dirname + "/app3/driver.js",
     output : {
         path : __dirname + "/js/",
         filename : "bundle.js"
@@ -16,6 +16,10 @@ module.exports = {
                 test : /\.jsx?$/,
                 exclude : /(node_modules)/,
                 loaders : ["babel-loader"]
+            },
+            {
+                test : /\.html?$/,
+                loaders : ["underscore-template-loader"]
             }
         ]
     },
