@@ -1,10 +1,25 @@
+import * as _ from "underscore";
+var Backbone = require('backbone');
 var Marionette  = require('backbone.marionette');
 
-var HelloWorld = Marionette.LayoutView.extend({
+var TodoList = Marionette.LayoutView.extend({
     el : '#main',
     template : require('./templates/layout.html')
 });
 
-var hello = new HelloWorld();
+var todo = new TodoList({
+    mode : new Backbone.Model({
+        items : [
+            {
+                assignee: "Scot", text : "Write a book about Marionette"
+            },
+            {
+                assignee: "Andrew", text : "Do some coding"
+            }
+        ]
+    })
+});
 
-hello.render();
+todo.render();
+
+
