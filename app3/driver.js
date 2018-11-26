@@ -1,4 +1,4 @@
-import * as _ from "underscore";
+window._ = require('underscore');
 var Backbone = require('backbone');
 var Marionette  = require('backbone.marionette');
 
@@ -8,7 +8,7 @@ var TodoList = Marionette.LayoutView.extend({
 });
 
 var todo = new TodoList({
-    mode : new Backbone.Model({
+    model : new Backbone.Model({
         items : [
             {
                 assignee: "Scot", text : "Write a book about Marionette"
