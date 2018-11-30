@@ -18,10 +18,10 @@ module.exports = {
                 loaders : ["babel-loader"]
             },
             {
-                test : /\.html?$/,
-                loaders : ["underscore-template-loader"]
+                test: /\.html$/,
+                loader: 'underscore-template-loader'
             }
         ]
     },
     watch: true
-}
+};
