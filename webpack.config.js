@@ -1,5 +1,5 @@
 module.exports = {
-    entry : __dirname + "/app2/index.js",
+    entry : __dirname + "/survivejs/index.js",
     output : {
         path : __dirname + "/js/",
         filename : "bundle.js"
@@ -13,7 +13,7 @@ module.exports = {
                 loader : "style-loader!css-loader"
             },
             {
-                test : /\.jsx?$/,
+                test : /\.js?$/,
                 exclude : /(node_modules)/,
                 loaders : ["babel-loader"]
             },
