@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
 import TownList from '../components/TownsList';
-import {VisibilityFilters} from "../../actions";
-import TodoList from "../../components/TodoList";
 
 const getVisibleTowns = (towns, filter) => {
     switch (filter) {
@@ -18,9 +16,9 @@ const mapStateToProps = state => {
     towns : getVisibleTowns(state.towns, state.selectedFilter)
 };
 
-const VisibilitiTownList = connect(
+const VisibilityTownList = connect(
     mapStateToProps,
     undefined
-) (TodoList);
+) (TownList);
 
-export default VisibilitiTownList;
+export default VisibilityTownList;
