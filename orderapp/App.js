@@ -1,13 +1,23 @@
 import React from 'react';
 import YourTown from './towns/YourTown';
+import DeliveryMethods from './delivery/DeliveryMethods';
 
+
+/**
+ * 1. От города зависят методы доставки - методы доставки должны храниться на сервере,
+ * вся логика хранится на сервере.
+ *
+ *
+ *
+ */
 
 class App extends React.Component{
 
     constructor(props) {
         super(props);
         this.state = {
-            selectedTown : 'Белгород'
+            selectedTown : false,
+            deliveryMethod : false,
         }
     }
 
@@ -18,6 +28,10 @@ class App extends React.Component{
                     selectedTown={this.state.selectedTown}
                     onTownSelect={this.onTownSelect}
                 />
+                <DeliveryMethods
+                    deliveryMethod={this.deliveryMethod}
+                    onDeliveryMethodSelect={this.onDeliveryMethodSelect}
+                 />
             </div>
         );
     }
@@ -26,7 +40,13 @@ class App extends React.Component{
         this.setState({
             selectedTown : name
         });
-    }
+    };
+
+    onDeliveryMethodSelect = (id) => {
+        this.setState({
+            deliveryMethod : id
+        });
+    };
 }
 
 export default App;

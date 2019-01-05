@@ -1,5 +1,5 @@
 module.exports = {
-    entry : __dirname + "/orderapp/entry.js",
+    entry : __dirname + "/tornado/src/index.js",
     output : {
         path : __dirname + "/js/",
         filename : "bundle.js"
