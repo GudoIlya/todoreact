@@ -13,6 +13,7 @@ class App extends React.Component {
                     'id'   : uuid.v4(),
                     'text' : 'Что такое исильдур?',
                     'opened' : false,
+                    'answered' : false,
                     'is_tornado'  : false,
                     'points'   : 100
                 },
@@ -20,6 +21,7 @@ class App extends React.Component {
                     'id'   : uuid.v4(),
                     'text' : 'Что такое исильдур?',
                     'opened' : false,
+                    'answered' : false,
                     'is_tornado'  : false,
                     'points'   : 100
                 },
@@ -27,6 +29,7 @@ class App extends React.Component {
                     'id'   : uuid.v4(),
                     'text' : 'Что такое исильдур?',
                     'opened' : false,
+                    'answered' : false,
                     'is_tornado'  : false,
                     'points'   : 100
                 },
@@ -34,6 +37,7 @@ class App extends React.Component {
                     'id'   : uuid.v4(),
                     'text' : 'Что такое исильдур?',
                     'opened' : false,
+                    'answered' : false,
                     'is_tornado'  : false,
                     'points'   : 100
                 },
@@ -41,6 +45,7 @@ class App extends React.Component {
                     'id'   : uuid.v4(),
                     'text' : 'Что такое исильдур?',
                     'opened' : false,
+                    'answered' : false,
                     'is_tornado'  : false,
                     'points'   : 100
                 },
@@ -48,6 +53,7 @@ class App extends React.Component {
                     'id'   : uuid.v4(),
                     'text' : 'Что такое исильдур?',
                     'opened' : false,
+                    'answered' : false,
                     'is_tornado'  : false,
                     'points'   : 100
                 },
@@ -55,6 +61,7 @@ class App extends React.Component {
                     'id'   : uuid.v4(),
                     'text' : 'Что такое исильдур?',
                     'opened' : false,
+                    'answered' : false,
                     'is_tornado'  : false,
                     'points'   : 100
                 },
@@ -62,6 +69,7 @@ class App extends React.Component {
                     'id'   : uuid.v4(),
                     'text' : 'Что такое исильдур?',
                     'opened' : false,
+                    'answered' : false,
                     'is_tornado'  : false,
                     'points'   : 100
                 },
@@ -69,6 +77,7 @@ class App extends React.Component {
                     'id'   : uuid.v4(),
                     'text' : 'Что такое исильдур?',
                     'opened' : false,
+                    'answered' : false,
                     'is_tornado'  : false,
                     'points'   : 100
                 }
@@ -98,11 +107,24 @@ class App extends React.Component {
                     <Tornado
                         questions={this.state.questions}
                         teams={this.state.teams}
+                        openQuestion={this.openQuestion}
                     />
                 </div>
             );
     };
 
+    openQuestion = (id) => {
+        let questions = this.state.questions.slice();
+        console.log(questions);
+        questions.map(function (question, index) {
+            if(question.id === id) {
+                question.opened = true;
+            } else {
+                question.opened = false;
+            }
+        });
+        this.setState({questions : questions});
+    };
 }
 
 export default App;

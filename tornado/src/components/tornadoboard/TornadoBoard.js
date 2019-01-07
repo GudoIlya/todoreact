@@ -22,7 +22,7 @@ class TornadoBoard extends React.Component {
     };
 
     onQuestionClick = (id) => {
-        alert(id);
+        this.props.openQuestion(id);
     };
 }
 
