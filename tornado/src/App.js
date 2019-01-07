@@ -108,6 +108,7 @@ class App extends React.Component {
                         questions={this.state.questions}
                         teams={this.state.teams}
                         openQuestion={this.openQuestion}
+                        answerQuestion={this.answerQuestion}
                     />
                 </div>
             );
@@ -115,7 +116,6 @@ class App extends React.Component {
 
     openQuestion = (id) => {
         let questions = this.state.questions.slice();
-        console.log(questions);
         questions.map(function (question, index) {
             if(question.id === id) {
                 question.opened = true;
@@ -125,6 +125,19 @@ class App extends React.Component {
         });
         this.setState({questions : questions});
     };
+
+    answerQuestion = (id, result) => {
+        let questions = this.state.questions.slice();
+        questions.map(function(question, index) {
+            console.log(id === question.id);
+            if(question.id === id) {
+                question.answered = result;
+                question.opened = false;
+            }
+            console.log(question);
+        });
+        this.setState({ questions : questions });
+    }
 }
 
 export default App;

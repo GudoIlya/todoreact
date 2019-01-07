@@ -5,26 +5,57 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const Question = ({question, ...props}) => {
+class Question extends React.Component {
 
-    return (
-        <div className="col-md-4 tornado-question" onClick={props.onQuestionClick(question.id)}>
-            <Card>
-                <CardContent>
-                    { props.opened === true ?
-                        ( <div>{ question.text }</div> ) : '' }
-                </CardContent>
-                {
-                    props.opened === true ? (
-                        <CardActions>
-                            <Button>Правильно</Button>
-                            <Button>Неверно</Button>
-                        </CardActions>
-                    )  : ''
-                }
-            </Card>
-        </div>
-    );
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        let {question, ...props} = this.props;
+        return (
+            <div className="col-md-4 tornado-question" onClick={this.handleClickQuestion}>
+                <Card className={question.answered ? 'answered' : ''}>
+                    <CardContent>
+                        <div>
+                        { question.opened === true ?
+                            ( <div>{ question.text }</div> ) : '' }
+                        {
+                            question.opened === true ? (
+                                    <div><Button onClick={this.rightAnswerQuestion}>Правильно</Button>
+                                    <Button onClick={this.falseAnswerQuestion}>Неверно</Button></div>
+                            )  : ''
+                        }
+                        </div>
+                    </CardContent>
+
+                </Card>
+            </div>
+        );
+    }
+
+    handleClickQuestion = (event) => {
+        event.preventDefault();
+        this.props.onQuestionClick(this.props.question.id);
+    };
+
+    rightAnswerQuestion = (event) => {
+        event.preventDefault();
+        this.answerQuestion(true);
+    };
+
+    falseAnswerQuestion = (event) => {
+        event.preventDefault();
+        this.answerQuestion(false);
+    };
+
+    answerQuestion = (result) => {
+        if(result === undefined) {
+            result = false;
+        }
+        console.log(result);
+        this.props.answerQuestion(this.props.question.id, result);
+    };
 
 };
 

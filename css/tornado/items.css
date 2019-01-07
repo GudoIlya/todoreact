@@ -1,1 +1,6 @@
-
+.tornado-question {
+    padding:0 !important;
+}
+div.answered {
+    background: #90de91;
+}

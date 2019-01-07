@@ -8,12 +8,14 @@ class TornadoBoard extends React.Component {
     }
 
     render = () => {
-        let {questions} = {...this.props};
+        let {questions, openQuestion, answerQuestion, ...props} = {...this.props};
         return (
             <div className="tornado-board row">
                 {questions.length ? questions.map((question, index) => {
                         return (
-                            <Question key={index} question={question} onQuestionClick={this.onQuestionClick} />
+                            <Question key={index} question={question} onQuestionClick={openQuestion}
+                                      answerQuestion={answerQuestion}
+                            />
                         );
                     }
                 ) : "Нет вопросов для Вас;"}
@@ -21,9 +23,6 @@ class TornadoBoard extends React.Component {
         );
     };
 
-    onQuestionClick = (id) => {
-        this.props.openQuestion(id);
-    };
 }
 
 export default TornadoBoard;

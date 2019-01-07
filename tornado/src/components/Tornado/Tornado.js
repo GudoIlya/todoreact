@@ -13,6 +13,7 @@ class Tornado extends React.Component {
                 <TornadoHead />
                 <TornadoBoard questions={this.props.questions}
                               openQuestion={this.props.openQuestion}
+                              answerQuestion={this.props.answerQuestion}
                 />
             </div>
         );
