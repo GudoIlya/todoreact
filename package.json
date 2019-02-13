@@ -21,6 +21,7 @@
     "backbone.wreqr": "^1.4.0",
     "classnames": "^2.2.6",
     "formik": "^1.4.2",
+    "jest": "^24.1.0",
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
@@ -60,6 +61,7 @@
   "scripts": {
     "watch": "node_modules/.bin/webpack -w",
     "build": "node_modules/.bin/webpack",
-    "wds": "node_modules/.bin/webpack-dev-server -w --config webpack.config.js --hot"
+    "wds": "node_modules/.bin/webpack-dev-server -w --config webpack.config.js --hot",
+    "test": "jest"
   }
 }
